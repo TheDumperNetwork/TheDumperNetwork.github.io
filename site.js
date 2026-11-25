@@ -56,10 +56,10 @@ function evHTML(list){
 
 /* Chrome: nav, footer, progress bar, starfield */
 (function(){
- var nav=[['index.html','Home'],['solar-system.html','Solar System'],['index.html#worlds','Worlds'],['calendar.html','Sky Calendar'],['index.html#research','Research'],['index.html#contact','Contact']],h='';
- nav.forEach(function(n){h+='<a href="'+n[0]+'"'+((PG==='system'&&n[1]==='Solar System')||(PG==='cal'&&n[1]==='Sky Calendar')||(PG==='home'&&n[1]==='Home')?' class="on"':'')+'>'+n[1]+'</a>'});
+ var nav=[['index.html','Home'],['solar-system.html','Solar System'],['rockets.html','Rockets'],['index.html#worlds','Worlds'],['calendar.html','Sky Calendar'],['index.html#research','Research'],['index.html#contact','Contact']],h='';
+ nav.forEach(function(n){h+='<a href="'+n[0]+'"'+((PG==='system'&&n[1]==='Solar System')||(PG==='cal'&&n[1]==='Sky Calendar')||(PG==='rocket'&&n[1]==='Rockets')||(PG==='home'&&n[1]==='Home')?' class="on"':'')+'>'+n[1]+'</a>'});
  B.insertAdjacentHTML('afterbegin','<div id="bar"></div><canvas id="stars" aria-hidden="true"></canvas><header><a class="mark" href="index.html">DSRO</a><nav>'+h+'</nav></header>');
- if(PG!=='system')B.insertAdjacentHTML('beforeend','<footer><span>Dumper Space Research Organisation</span><span>An independent research organisation.</span></footer>');
+ if(PG!=='system'&&PG!=='rocket')B.insertAdjacentHTML('beforeend','<footer><span>Dumper Space Research Organisation</span><span>An independent research organisation.</span></footer>');
  var c=$('#stars'),x=c.getContext('2d'),W,H,S=[],t=0,sy=0;
  function size(){W=c.width=innerWidth;H=c.height=innerHeight;S=[];for(var i=0,n=Math.round(W*H/5000);i<n;i++)S.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1,s:Math.random()*6.28})}
  function draw(){x.clearRect(0,0,W,H);for(var i=0;i<S.length;i++){var s=S[i],y=((s.y-sy*s.z*.35)%H+H)%H;
